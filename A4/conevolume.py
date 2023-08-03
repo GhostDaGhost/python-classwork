@@ -1,29 +1,38 @@
-# Author: Alex Arizola
-# Program 2 / Cone Volume Function
+# Author: Alexander Arizola
+# A4 - Cone Volume Function
+# This is a program that will calculate and display the volume of a cone with an inputted height and base radius.
 
-pie = 3.14285714286
+# IMPORTS MATH FUNCTIONS
+import math
 
-# WHEN TRIGGERED, CONVERT HEIGHT AND RADIUS TO VOLUME
-def ConvertHeightRadiusToVolume(heightInput, radiusInput):
-    volume = pie * (radiusInput * radiusInput) * heightInput / 3  
-    print("Converted Volume: " + str(volume))
+# WHEN TRIGGERED, THIS WILL CALCULATE THE VOLUME OF A CONE WITH PARAMETERS OF HEIGHT AND RADIUS
+# @param height - int - The height to calculate with.
+# @param radius - int - The base radius to calculate with.
+# @returns calculatedConeVolume - int - The calculated volume of the cone.
+def coneVolume(height, radius):
+    calculatedConeVolume = math.pi * (radius * radius) * height / 3
 
-# WHEN TRIGGERED, ASK USER FOR HEIGHT AND RADIUS
-def AskUserForHeightRadius():
-    heightInput = input('Enter a height: ')
-    
-    if heightInput != '':
-        print('You have entered a height of ', heightInput)
+    # OUTPUT THE VOLUME OF THE CONE TO THE CONSOLE
+    print("The volume of the cone is: " + str(calculatedConeVolume))
+    return calculatedConeVolume
 
-        radiusInput = input('Enter a radius: ')
-        if radiusInput != '':
-            print('You have entered a radius of ', radiusInput)
-            ConvertHeightRadiusToVolume(int(heightInput), int(radiusInput))
+# WHEN TRIGGERED, THIS WILL BE TRIGGERED UPON PROGRAM EXECUTION AND ASKS FOR HEIGHT AND BASE RADIUS THROUGH INPUT
+# No parameters.
+# This returns nothing.
+def main():
+    heightInput = int(input("Please enter the height of the cone: "))
+
+    # VALIDATE HEIGHT INPUT
+    if (heightInput and heightInput > 0):
+        baseRadiusInput = int(input("Please enter the base radius of the cone: "))
+        
+        # VALIDATE BASE RADIUS INPUT
+        if (baseRadiusInput and baseRadiusInput > 0):
+            coneVolume(heightInput, baseRadiusInput)
         else:
-            print('You did not enter a correct height input!')
+            print("Please enter a valid base radius.")
     else:
-        print('You did not enter a correct height input!')
+        print("Please enter a valid height.")
 
-
-# TRIGGERS UPON SCRIPT EXECUTION
-AskUserForHeightRadius()
+# TRIGGERS WHEN PROGRAM IS EXECUTED
+main()
