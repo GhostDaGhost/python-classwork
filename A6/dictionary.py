@@ -1,12 +1,12 @@
-# Author: Alex Arizola
-# Assignment 6 | 6/07/2022
-# Program / Dictionary
+# Author: Alexander Arizola
+# A6 - Weekly Temperature Data Processing
+# This is a program that will record temperatures of each day of the week as well as display the coldest and warmest day as well as the average and which days are above average.
 
 # TO USE math.floor
 import math
 
-weeklyTemps = { # DICTIONARY OF EACH DAY OF THE WEEK WITH TEMPERATURE PLACEHOLDERS
-    # Weekday Name: Temperature Placeholder,
+# VARIABLE FOR TEMPERATURES WITHIN THE WEEK
+weeklyTemps = {
     'Monday': 0,
     'Tuesday': 0,
     'Wednesday': 0,
@@ -17,7 +17,7 @@ weeklyTemps = { # DICTIONARY OF EACH DAY OF THE WEEK WITH TEMPERATURE PLACEHOLDE
 }
 
 # WHEN TRIGGERED, ASK USER FOR TEMPERATURE OF EACH WEEK DAY
-def AskUserForWeeklyTemperatures():
+def main():
     # GO THROUGH EACH WEEKDAY AND ASK FOR THE TEMPERATURE
     for weekdayName in weeklyTemps.keys():
         temperatureInput = input('Enter the temperature for ' + weekdayName + ': ')
@@ -57,4 +57,4 @@ def AskUserForWeeklyTemperatures():
     print(higherThanAverageForecast)
 
 # TRIGGERS UPON SCRIPT EXECUTION
-AskUserForWeeklyTemperatures()
+main()
